@@ -4,15 +4,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/test/user/UserITSuite.java</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/test/user/RemboursementIT.java</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/test/utils/ValidationIT.java</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/userFileManagement/LoadJsonFile.java</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/user/User.java</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/intrant/test2.json</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/test/utils/UtilsITSuite.java</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/user/Calculate.java</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/Main.java</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/testout.json</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/client/Calculate.java</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/client/Client.java</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/test/user/CalculateIT.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,6 +5,7 @@
  */
 package utils;
 
+import utilitaires.Montant;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

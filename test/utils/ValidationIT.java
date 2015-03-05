@@ -5,13 +5,14 @@
  */
 package utils;
 
+import utilitaires.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import user.User;
+import clients.Client;
 
 /**
  *
@@ -44,7 +45,7 @@ public class ValidationIT {
     @Test
     public void testValiderClient() {
         System.out.println("validerClient");
-        User unUser = null;
+        Client unUser = null;
         boolean expResult = false;
         boolean result = Validation.validerClient(unUser);
         assertEquals(expResult, result);

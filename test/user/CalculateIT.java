@@ -5,6 +5,10 @@
  */
 package user;
 
+import clients.Calculate;
+import clients.Remboursement;
+import clients.Client;
+import clients.Reclamation;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -67,7 +71,7 @@ public class CalculateIT {
         listRemb.add(remb2);
         listRemb.add(remb3);
        
-        User client = new User("789345",'D',"05-2014", listRecl, listRemb);
+        Client client = new Client("789345",'D',"05-2014", listRecl, listRemb);
         Calculate.calculateTotalRefunds(client);
         
         Reclamation reclam4 = new Reclamation(300,"15-05-2314","500.88$");
@@ -89,7 +93,7 @@ public class CalculateIT {
         listRemb2.add(remb4);
         listRemb2.add(remb5);
         listRemb2.add(remb6);
-        User client2 = new User("789035",'A',"02-2062", listRecl2, listRemb2);
+        Client client2 = new Client("789035",'A',"02-2062", listRecl2, listRemb2);
         Calculate.calculateTotalRefunds(client2);
         
         assertEquals(client.getListReclam().get(1).getMontant(), client.getListRemb().get(1).getMontant(), 0.01);

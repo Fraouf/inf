@@ -5,6 +5,7 @@
  */
 package user;
 
+import clients.Remboursement;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

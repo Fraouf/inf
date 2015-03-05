@@ -5,6 +5,9 @@
  */
 package user;
 
+import clients.Remboursement;
+import clients.Reclamation;
+import clients.Client;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -39,12 +42,12 @@ public class UserIT {
     }
 
     /**
-     * Test of getClient method, of class User.
+     * Test of getClient method, of class Client.
      */
     @Test
     public void testGetClient() {
         System.out.println("getClient");
-        User instance = new User();
+        Client instance = new Client();
         String expResult = "";
         String result = instance.getClient();
         assertEquals(expResult, result);
@@ -53,25 +56,25 @@ public class UserIT {
     }
 
     /**
-     * Test of setClient method, of class User.
+     * Test of setClient method, of class Client.
      */
     @Test
     public void testSetClient() {
         System.out.println("setClient");
         String client = "";
-        User instance = new User();
+        Client instance = new Client();
         instance.setClient(client);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getContrat method, of class User.
+     * Test of getContrat method, of class Client.
      */
     @Test
     public void testGetContrat() {
         System.out.println("getContrat");
-        User instance = new User();
+        Client instance = new Client();
         String expResult = "";
         char result = instance.getContrat();
         assertEquals(expResult, result);
@@ -80,25 +83,25 @@ public class UserIT {
     }
 
     /**
-     * Test of setContrat method, of class User.
+     * Test of setContrat method, of class Client.
      */
     @Test
     public void testSetContrat() {
         System.out.println("setContrat");
         char contrat = 'z';
-        User instance = new User();
+        Client instance = new Client();
         instance.setContrat(contrat);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getMois method, of class User.
+     * Test of getMois method, of class Client.
      */
     @Test
     public void testGetMois() {
         System.out.println("getMois");
-        User instance = new User();
+        Client instance = new Client();
         String expResult = "";
         String result = instance.getMois();
         assertEquals(expResult, result);
@@ -107,25 +110,25 @@ public class UserIT {
     }
 
     /**
-     * Test of setMois method, of class User.
+     * Test of setMois method, of class Client.
      */
     @Test
     public void testSetMois() {
         System.out.println("setMois");
         String mois = "";
-        User instance = new User();
+        Client instance = new Client();
         instance.setMois(mois);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getListReclam method, of class User.
+     * Test of getListReclam method, of class Client.
      */
     @Test
     public void testGetListReclam() {
         System.out.println("getListReclam");
-        User instance = new User();
+        Client instance = new Client();
         List<Reclamation> expResult = null;
         List<Reclamation> result = instance.getListReclam();
         assertEquals(expResult, result);
@@ -134,25 +137,25 @@ public class UserIT {
     }
 
     /**
-     * Test of setListReclam method, of class User.
+     * Test of setListReclam method, of class Client.
      */
     @Test
     public void testSetListReclam() {
         System.out.println("setListReclam");
         List<Reclamation> reclamations = null;
-        User instance = new User();
+        Client instance = new Client();
         instance.setListReclam(reclamations);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getListRemb method, of class User.
+     * Test of getListRemb method, of class Client.
      */
     @Test
     public void testGetListRemb() {
         System.out.println("getListRemb");
-        User instance = new User();
+        Client instance = new Client();
         List<Remboursement> expResult = null;
         List<Remboursement> result = instance.getListRemb();
         assertEquals(expResult, result);
@@ -161,13 +164,13 @@ public class UserIT {
     }
 
     /**
-     * Test of setListRemb method, of class User.
+     * Test of setListRemb method, of class Client.
      */
     @Test
     public void testSetListRemb() {
         System.out.println("setListRemb");
         List<Remboursement> remboursements = null;
-        User instance = new User();
+        Client instance = new Client();
         instance.setListRemb(remboursements);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
