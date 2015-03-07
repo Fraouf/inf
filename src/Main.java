@@ -1,10 +1,8 @@
-
-import com.google.gson.stream.JsonReader;
-import java.io.FileReader;
 import clients.Calculate;
 import gestionDeFichier.LoadJsonFile;
 import gestionDeFichier.SaveJsonFile;
 import clients.Client;
+import java.io.IOException;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -19,13 +17,10 @@ public class Main {
 
         try {
             
-            String clientFilesJson = args[0];
-
-            //Lecture des fichiers source .json donn� par les arguments du main
-            JsonReader file = new JsonReader(new FileReader(clientFilesJson));
-
-            //r�cup�ration du fichier json de la classe JsonReader
-            Client customer = LoadJsonFile.load(file);
+            String jsonTexte = LoadJsonFile.loadFileIntoString( args[0], "utf-8");
+            
+            
+            Client customer = LoadJsonFile.ParseJsonFile(jsonTexte);
 
             //on calcule si tout est valide
             if(customer.isValide()){
@@ -35,9 +30,7 @@ public class Main {
             //sauvegarde du fichier
             SaveJsonFile.save(customer, args[1]);
 
-        } catch (Exception e) {
-
-            e.printStackTrace();
+        } catch (IOException | IllegalArgumentException e) {
         }
 
     }

@@ -4,15 +4,17 @@
  */
 package gestionDeFichier;
 
-import com.google.gson.stream.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import clients.Reclamation;
 import clients.Remboursement;
 import clients.Client;
-import utilitaires.Montant;
-import utilitaires.Validation;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import org.apache.commons.io.IOUtils;
 
 /**
  *
@@ -25,103 +27,40 @@ public class LoadJsonFile {
     // Cette méthode  prend en paramétres un Objet de type JsonReader et retourne un
     // Objet Client.
     // @ JsonReader
+    public static Client ParseJsonFile(String jsonTexte) throws IOException, IllegalArgumentException {
 
-    public static Client load(JsonReader reader) throws IOException {
+        JSONObject clientObj = JSONObject.fromObject(jsonTexte);
 
-        String client = "";
-        char contrat = 'z';
-        String mois = "";
+        String noClient = clientObj.getString("client");
+        char contrat = clientObj.getString("contrat").charAt(0);
+        String mois = clientObj.getString("mois");
+        List<Reclamation> listReclam = readArray(clientObj);
+
+        return new Client(noClient, contrat, mois, listReclam, listRemb);
+    }
+
+    public static List<Reclamation> readArray(JSONObject refundObj) throws IOException {
+
         List<Reclamation> listReclam = new ArrayList<>();
-        Client customer = new Client();
-        
-        reader.beginObject();
+        JSONArray reclamationsJson = refundObj.getJSONArray("reclamations");
 
-        while (reader.hasNext()) {
+        for (int j = 0; j < reclamationsJson.size(); j++) {
 
-            String name = reader.nextName();
+            JSONObject uneReclamation = reclamationsJson.getJSONObject(j);
+            int soin = uneReclamation.getInt("soin");
+            String date = uneReclamation.getString("date");
+            String montant = uneReclamation.getString("montant");
 
-            switch (name) {
-                case "client":
-                    client = reader.nextString();
-                    break;
-                case "contrat":
-                    contrat = reader.nextString().charAt(0);
-                    break;
-                case "mois":
-                    mois = reader.nextString();
-                    break;
-                case "reclamations":
-                    listReclam = readArray(reader);
-                    break;
-                default:
-                    reader.skipValue();
-                    break;
-            }
-
+            listReclam.add(new Reclamation(soin, date, montant));
+            // pour chaque réclamation on crée un remboursement ayant les mêmes attribus sauf le montant 
+            listRemb.add(new Remboursement(soin, date, "-1"));
         }
-        customer.setClient(client);
-        customer.setContrat(contrat);
-        customer.setMois(mois);
-        customer.setListReclam(listReclam);
-        customer.setListRemb(listRemb);
-
-        reader.endObject();
-
-        try {
-            if (Validation.validerClient(customer)) {
-                customer.setValide(true);
-            }
-        } catch (Exception e) {
-        }
-        return customer;
-    }
-
-    public static List<Reclamation> readArray(JsonReader reader) throws IOException {
-        List<Reclamation> listReclam = new ArrayList();
-
-        reader.beginArray();
-        while (reader.hasNext()) {
-            listReclam.add(readReclam(reader));
-        }
-        reader.endArray();
         return listReclam;
+
     }
 
-    public static Reclamation readReclam(JsonReader reader) throws IOException {
-
-        int soin = -1;
-        String date = "";
-        double montant = 0;
-
-        reader.beginObject();
-
-        while (reader.hasNext()) {
-
-            String name = reader.nextName();
-
-            switch (name) {
-                case "soin":
-                    soin = reader.nextInt();
-                    break;
-                case "date":
-                    date = reader.nextString();
-                    break;
-                case "montant":
-                    montant = Montant.lireMontant(reader.nextString());
-                    break;
-                default:
-                    reader.skipValue();
-                    break;
-            }
-
-        }
-
-        reader.endObject();
-
-        listRemb.add(new Remboursement(soin, date, ""));
-
-        return new Reclamation(soin, date, Montant.ecrireMontant(montant));
-
+    public static String loadFileIntoString(String filePath, String fileEncoding) throws FileNotFoundException, IOException {
+        return IOUtils.toString(new FileInputStream(filePath), fileEncoding);
     }
 
 }

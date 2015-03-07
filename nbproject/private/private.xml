@@ -4,9 +4,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/sorti4.json</file>
             <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/testout.json</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/client/Calculate.java</file>
-            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/client/Client.java</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/clients/Reclamation.java</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/Main.java</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/clients/Client.java</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/gestionDeFichier/LoadJsonFile.java</file>
+            <file>file:/Users/k1fryouf/NetBeansProjects/Refund/src/gestionDeFichier/SaveJsonFile.java</file>
             <file>file:/Users/k1fryouf/NetBeansProjects/Refund/test/user/CalculateIT.java</file>
         </group>
     </open-files>

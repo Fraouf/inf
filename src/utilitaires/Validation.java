@@ -63,7 +63,9 @@ public class Validation {
             
             int leSoin = unUser.getListReclam().get(i).getSoin();
             
-            if(!(leSoin == 0 || leSoin == 100 || leSoin == 200 || leSoin == 400 || leSoin == 500 || leSoin == 600 || leSoin == 700 || (leSoin >=300 && leSoin <=400))){
+            if(!(leSoin == 0 || leSoin == 100 || leSoin == 200 ||
+                leSoin == 400 || leSoin == 500 || leSoin == 600 || 
+                leSoin == 700 || (leSoin >=300 && leSoin <=400))){
                 
                 soinValide = false;
             }
@@ -74,10 +76,10 @@ public class Validation {
         return soinValide;
     }
 
-    private static boolean estNombre(String var) {
+    private static boolean estNombre(String unNombre) {
 
         try {
-            Double.parseDouble(var);
+            Double.parseDouble(unNombre);
 
         } catch (NumberFormatException nfe) {
 
@@ -88,10 +90,10 @@ public class Validation {
 
     private static boolean valideDateFormat(String uneDate) {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-        sdf.setLenient(false);
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-mm-dd");
+        date.setLenient(false);
         try {
-            sdf.parse(uneDate);
+            date.parse(uneDate);
         } catch (ParseException e) {
             return false;
         }
